@@ -1,0 +1,38 @@
+Minimum indexed character:
+using Hashmap
+A HashMap in Java is a data structure that allows you to store and retrieve key-value pairs.
+It implements the Map interface and uses a hash table to store the key-value pairs.
+void printMinIndexChar(String str, String pattern)
+    {
+        HashMap<Character, Integer> hm = new HashMap<>();
+        int minIndex = Integer.MAX_VALUE;
+        int m = str.length();
+        int n = pattern.length(); 
+        for (int i = 0; i < m; i++)
+            if(!hm.containsKey(str.charAt(i)))
+                hm.put(str.charAt(i),i);
+        for (int i = 0; i < n; i++)
+            if (hm.containsKey(pattern.charAt(i)) && hm.get(pattern.charAt(i)) < minIndex)
+                minIndex = hm.get(pattern.charAt(i));
+        if (minIndex != Integer.MAX_VALUE)
+            return (minIndex);
+      else
+            return -1;
+    }
+    void printMinIndexChar(String str, String patt)
+    {
+        int minIndex = Integer.MAX_VALUE;
+        int m = str.length();
+        int n = pattern.length();
+    for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+      if (pattern.charAt(i)== str.charAt(j) && j < minIndex) {
+                    minIndex = j;
+                    break;
+    if (minIndex != Integer.MAX_VALUE)
+            return (minIndex);
+      else
+            return -1;                }
+            }
+        }
+      
