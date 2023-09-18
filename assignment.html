@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Check</title>
+    <script>
+        function checkExpense() {
+            // Get the expense value from the input field
+            var expense = parseFloat(document.getElementById("expenseInput").value);
+			var myList = [90,45,89,1,2];
+			if (myList.indexOf(expense) !== -1){
+document.getElementById("message").innerHTML = "Expense is in boundary";			
+}
+
+            // Check if the expense is greater than $90
+            if (expense > 90) {
+                document.getElementById("message").innerHTML = "Error: Expense is too high!";
+            } else if (expense < 90) {
+                document.getElementById("message").innerHTML = "Success: Expense is within the limit.";
+            } else {
+                document.getElementById("message").innerHTML = "Wonderful: Expense is exactly $90!";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Expense Checker</h1>
+    <label for="expenseInput">Enter Expense:</label>
+    <input type="number" id="expenseInput" step="0.01" placeholder="Enter expense amount">
+    <button onclick="checkExpense()">Check</button>
+    <p id="message"></p>
+</body>
+</html>
